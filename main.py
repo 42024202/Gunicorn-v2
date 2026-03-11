@@ -16,7 +16,11 @@ def main():
     print("Сервер запущен")
     print(f"server address: {server_addres}")
     server_socket.listen(1)
-    listen_for_connection(server_socket)
+    while True:
+        try:
+            listen_for_connection(server_socket)
+        except Exception as e:
+            print(e)
 
 if __name__ == "__main__":
     main()
